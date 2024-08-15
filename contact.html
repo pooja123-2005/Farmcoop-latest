@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Us</title>
+<style>
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f2f2f2;
+}
+
+.container {
+  width: 600px;
+  margin: 50px auto;
+  background-color: #FFFFF7;
+  padding: 30px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+p {
+  margin-bottom: 10px;
+  color: #555;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-sizing: border-box;
+}
+
+textarea {
+  height: 100px;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.other-ways {
+  margin-top: 30px;
+  color: #333;
+}
+
+.other-ways p {
+  margin-bottom: 5px;
+}
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2em;
+            color: #f2f2f2;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            margin: 0;
+            color: #f2f2f2;
+        }
+
+        .nav {
+            background-color: #3e8e41;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        .nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            display: flex; /* Use flexbox for centering */
+            justify-content: center; /* Center items horizontally */
+        }
+
+        .nav li {
+            margin: 0 10px; /* Add margin for spacing */
+        }
+
+        .nav a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 10px 16px;
+            text-decoration: none;
+        }
+
+        .nav a:hover {
+            background-color: #2196F3;
+        }
+        .footer{
+        background-color: black;
+        color: white;
+        padding: 0px;
+        text-align: center;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+       }
+       .footer p{
+           color: white;
+       }
+       /* Style for the popup */
+       .popup {
+           display: none;
+           position: fixed; 
+           left: 50%;
+           top: 50%;
+           transform: translate(-50%, -50%);
+           background-color: white;
+           padding: 20px;
+           border-radius: 5px;
+           box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+           width: 300px; /* Adjust width as needed */
+       }
+
+       .popup h2 {
+           text-align: center;
+           margin-bottom: 10px;
+       }
+
+       .close-button {
+           position: absolute;
+           top: 10px;
+           right: 10px;
+           cursor: pointer;
+       }
+</style>
+</head>
+<body>
+    <div class="header">
+        <h1>FarmCo-op</h1>
+        <br>
+        <br>
+        <p>Empowering Smallholder Farmers Through Cooperation</p>
+    </div>
+
+    <div class="nav">
+        <ul>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="join.html">Join</a>
+            <a href="service.html">Services</a>
+            <a href="contact.html">Contact</a>
+        </ul>
+    </div>
+<div class="container">
+    <h1>Contact Us</h1>
+  <p>Have questions about forming a cooperative or want to learn more about our services? Get in touch with us using the form below or through our other contact methods.</p>
+
+  <form id="contactForm">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="subject">Subject:</label>
+    <input type="text" id="subject" name="subject">
+
+    <label for="message">Message:</label>
+    <textarea id="message" name="message"></textarea>
+
+    <button type="submit">Send Message</button>
+  </form>
+
+  <div class="other-ways">
+    <h2>Other Ways to Reach Us</h2>
+    <p><strong>Phone:</strong> +1 (555) 123-4567</p>
+    <p><strong>Email:</strong> info@farmcoop.org</p>
+    <p><strong>Address:</strong> 123 Farm Road, Rural County, State 12345</p>
+  </div>
+  <div class="footer">
+    <p>&copy; 2024 FarmCo-op. All Rights Reserved.</p>
+</div>
+
+  <!-- Popup for success message -->
+  <div class="popup" id="popup">
+    <span class="close-button" onclick="closePopup()">&times;</span>
+    <h2>Message Received!</h2>
+    <p>Your message has been sent. We'll get back to you soon.</p>
+  </div>
+</div>
+
+<script>
+  // Get the form and the popup element
+  const contactForm = document.getElementById('contactForm');
+  const popup = document.getElementById('popup');
+
+  // Function to show the popup
+  function showPopup() {
+    popup.style.display = 'block';
+  }
+
+  // Function to close the popup
+  function closePopup() {
+    popup.style.display = 'none';
+  }
+
+  // Handle form submission
+  contactForm.addEventListener('submit', (event) => {
+    event.preventDefault(); // Prevent default form submission
+
+    // You would normally send the form data to a server here.
+    // For this example, we'll just show the popup.
+
+    showPopup();
+  });
+</script>
+</body>
+</html>

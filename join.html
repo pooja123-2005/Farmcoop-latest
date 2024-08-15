@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registration Form</title>
+	<style>
+		body {
+			background-color: #fffff7; /* white background color */
+		}
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            margin: 0;
+        }
+
+        .nav {
+            background-color: #3e8e41;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        .nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            display: flex; /* Use flexbox for centering */
+            justify-content: center; /* Center items horizontally */
+        }
+
+        .nav li {
+            margin: 0 10px; /* Add margin for spacing */
+        }
+
+        .nav a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 10px 16px;
+            text-decoration: none;
+        }
+
+        .nav a:hover {
+            background-color: #2196F3;
+        }
+
+		
+		.form-container {
+			width: 40%; /* increased width */
+			height: 800px; /* increased height */
+			margin: 40px auto;
+			padding: 20px;
+			border: 1px solid #CCCCCC;
+			border-radius: 10px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		}
+		
+		.form-control {
+			width: 100%;
+			padding: 10px;
+			margin-bottom: 20px;
+			border: 1px solid #CCCCCC;
+		}
+		
+		.form-control:focus {
+			border-color: #AAAAAA;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		}
+		
+		.button {
+			background-color: #4CAF50;
+			color: #FFFFFF;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+		
+		.button:hover {
+			background-color: #3e8e41;
+		}
+        .footer{
+        background-color: black;
+        color: white;
+        padding: 0px;
+        text-align: center;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+       }
+       .popup {
+            display: none; /* Initially hidden */
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            z-index: 100; /* Ensure it's on top */
+        }
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            color: #4CAF50;
+        }
+	</style>
+</head>
+<body>
+    <div class="header">
+        <h1>FarmCo-op</h1>
+        <br>
+        <br>
+        <p>Empowering Smallholder Farmers Through Cooperation</p>
+    </div>
+
+    <div class="nav">
+        <ul>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="join.html">Join</a>
+            <a href="service.html">Services</a>
+            <a href="contact.html">Contact</a>
+        </ul>
+    </div>
+	<div class="form-container">
+		<h2>Join FarmCo-op</h2>
+		<form>
+            <label for="fullname">Full Name:</label>
+            <input type="text" id="fullname" name="fullname" class="form-control" required><br><br>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" class="form-control" required><br><br>
+            
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" class="form-control" required><br><br>
+
+            <label for="farmsize">Farm Size (Acres):</label>
+            <input type="number" id="farmsize" name="farmsize" class="form-control" required><br><br>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" class="form-control" required><br><br>
+
+            <label for="crop">Crop:</label>
+            <select id="crop" name="crop" class="form-control" required>
+                <option value="">Select Crop</option>
+                <option value="Rice">Rice</option>
+                <option value="Wheat">Wheat</option>
+                <option value="Maize">Maize</option>
+                <option value="Sugarcane">Sugarcane</option>
+                <option value="Cotton">Cotton</option>
+                <option value="Tobacco">Tobacco</option>
+                <option value="Jute">Jute</option>
+                <!-- add more options as needed -->
+            </select><br><br>
+            
+            <label for="location">Location:</label>
+            <input type="text" id="location" name="location" class="form-control" required><br><br>
+            
+            <button class="button" type="submit">JoinNow</button>
+		</form>
+	</div>
+    <div class="footer">
+        <p>&copy; 2024 FarmCo-op. All Rights Reserved.</p>
+    </div>
+    
+    <div class="popup" id="success-popup">
+        <span class="close-button" onclick="closePopup()">&times;</span>
+        <h2>You have successfully signed in!</h2>
+        <p>Welcome to FarmCo-op.</p>
+    </div>
+
+    <script>
+        const form = document.querySelector('form');
+        const successPopup = document.getElementById('success-popup');
+
+        form.addEventListener('submit', (event) => {
+            event.preventDefault(); // Prevent the form from submitting normally
+            successPopup.style.display = 'block'; // Show the popup
+        });
+
+        function closePopup() {
+            successPopup.style.display = 'none'; // Hide the popup
+        }
+    </script>
+</body>
+</html>
